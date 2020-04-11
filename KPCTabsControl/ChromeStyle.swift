@@ -57,17 +57,17 @@ public struct ChromeStyle: ThemedStyle {
                 alignment: Defaults.alignment)
     }
 
-    public func attributedTitle(content: String, selectionState: TabSelectionState) -> NSAttributedString {
+    public func attributedTitle(_ button: TabButtonCell) -> NSAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = Defaults.alignment
 
-        let activeTheme = self.theme.tabButtonTheme(fromSelectionState: selectionState)
+        let activeTheme = self.theme.tabButtonTheme(fromSelectionState: button.selectionState)
 
         let attributes = [NSAttributedString.Key.paragraphStyle: paragraphStyle,
                           NSAttributedString.Key.font: activeTheme.titleFont,
                           NSAttributedString.Key.foregroundColor: activeTheme.titleColor]
 
-        return NSAttributedString(string: content, attributes: attributes)
+        return NSAttributedString(string: button.title, attributes: attributes)
     }
 
     fileprivate enum PaddedHeight {
@@ -121,7 +121,7 @@ public struct ChromeStyle: ThemedStyle {
         }
     }
 
-    public func drawTabButtonBezel(frame: NSRect, position: TabPosition, isSelected: Bool) {
+    public func drawTabButtonBezel(_ button: TabButtonCell, in frame: NSRect) {
 
         let height: CGFloat = PaddedHeight.fromFrame(frame).value
         let xOffset = height / 2.0
@@ -169,14 +169,14 @@ public struct ChromeStyle: ThemedStyle {
 
         path.lineWidth = 1
 
-        let activeTheme = isSelected ? self.theme.selectedTabButtonTheme : self.theme.tabButtonTheme
+        let activeTheme = button.isSelected ? self.theme.selectedTabButtonTheme : self.theme.tabButtonTheme
         activeTheme.backgroundColor.setFill()
         path.fill()
 
         activeTheme.borderColor.setStroke()
         path.stroke()
 
-        if !isSelected {
+        if !button.isSelected {
             self.drawBottomBorder(frame: frame)
         }
     }
@@ -195,8 +195,8 @@ public struct ChromeStyle: ThemedStyle {
         bottomBorder.fill()
     }
 
-    public func tabButtonOffset(position: TabPosition) -> Offset {
-        switch position {
+    public func tabButtonOffset(_ button: TabButtonCell) -> Offset {
+        switch button.buttonPosition {
         case .first: return NSPoint()
         case .middle, .last: return NSPoint(x: -10, y: 0)
         }

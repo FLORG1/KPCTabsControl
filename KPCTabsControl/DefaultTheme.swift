@@ -57,14 +57,16 @@ public struct DefaultTheme: Theme {
 
 public extension NSColor {
   func darkerColor(by value: CGFloat = 0.1) -> NSColor {
+    let rgb = self.usingColorSpace(.sRGB)!
     var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-    self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+    rgb.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
     return NSColor(calibratedHue: h, saturation: s, brightness: max(b - value, 0.0), alpha: a)
   }
   
   func lighterColor(by value: CGFloat = 0.1) -> NSColor {
+    let rgb = self.usingColorSpace(.sRGB)!
     var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-    self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+    rgb.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
     return NSColor(calibratedHue: h, saturation: s, brightness: min(b + value, 1.0), alpha: a)
   }
   

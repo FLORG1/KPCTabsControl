@@ -19,31 +19,25 @@ public protocol Style {
     // Tab Buttons
     var tabButtonWidth: TabWidth { get }
     var tabButtonsMargin: (left: CGFloat, right: CGFloat) { get }
-    func tabButtonOffset(position: TabPosition) -> Offset
-    func tabButtonOffset(index: Int, totalCount: Int) -> Offset
-    func tabButtonBorderMask(_ position: TabPosition) -> BorderMask?
-    func tabButtonBackgroundColor(isSelected: Bool) -> NSColor
+
+    func tabButtonOffset(_ button: TabButtonCell) -> Offset
+    func tabButtonBorderMask(_ button: TabButtonCell) -> BorderMask?
+    func tabButtonBackgroundColor(_ button: TabButtonCell) -> NSColor
+    func tabButtonTitleColor(_ button: TabButtonCell) -> NSColor
   
     // Tab Button Titles
     func iconFrames(tabRect rect: NSRect) -> IconFrames
     func titleRect(title: NSAttributedString, inBounds rect: NSRect, showingIcon: Bool) -> NSRect
     func titleEditorSettings() -> TitleEditorSettings
-    func attributedTitle(content: String, selectionState: TabSelectionState) -> NSAttributedString
+    func attributedTitle(_ button: TabButtonCell) -> NSAttributedString
 
     // Tabs Control
     var tabsControlRecommendedHeight: CGFloat { get }
     func tabsControlBorderMask() -> BorderMask?
     
     // Drawing
-    func drawTabButtonBezel(frame: NSRect, position: TabPosition, isSelected: Bool)
+    func drawTabButtonBezel(_ button: TabButtonCell, in frame: NSRect)
     func drawTabsControlBezel(frame: NSRect)
-}
-
-public extension Style {
-    var tabButtonsMargin: (left: CGFloat, right: CGFloat) { (0.0, 0.0)}
-    func tabButtonOffset(index: Int, totalCount: Int) -> Offset {
-        return tabButtonOffset(position: TabPosition.fromIndex(index, totalCount: totalCount))
-    }
 }
 
 /**

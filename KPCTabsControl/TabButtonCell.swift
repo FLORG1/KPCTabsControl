@@ -12,14 +12,10 @@ import AppKit
 
 let titleMargin: CGFloat = 5.0
 
-class TabButtonCell: NSButtonCell {
+public class TabButtonCell: NSButtonCell {
     
     var hasTitleAlternativeIcon: Bool = false
 
-    var isSelected: Bool {
-        get { return self.state == NSControl.StateValue.on }
-    }
-    
     var selectionState: TabSelectionState {
         return self.isEnabled == false ? TabSelectionState.unselectable : (self.isSelected ? TabSelectionState.selected : TabSelectionState.normal)
     }
@@ -40,13 +36,18 @@ class TabButtonCell: NSButtonCell {
         didSet { self.controlView?.needsDisplay = true }
     }
 
-    
     var requiredMinimumWidth: CGFloat {
-        let title = self.style.attributedTitle(content: self.title, selectionState: self.selectionState)
+        let title = self.style.attributedTitle(self)
         return title.size().width + 2.0*titleMargin
     }
   
     var style: Style!
+
+    public var isSelected: Bool {
+        get { return self.state == NSControl.StateValue.on }
+    }
+
+    public var dragging: Bool = false
 
     // MARK: - Initializers & Copy
     
@@ -64,11 +65,12 @@ class TabButtonCell: NSButtonCell {
         super.init(coder: aDecoder)
     }
     
-    override func copy() -> Any {
-        let copy = TabButtonCell(textCell:self.title)
+    public override func copy() -> Any {
+        let copy = TabButtonCell(textCell: self.title)
 
-        copy.hasTitleAlternativeIcon = self.hasTitleAlternativeIcon
+        copy.style = style
         copy.buttonPosition = self.buttonPosition
+        copy.hasTitleAlternativeIcon = self.hasTitleAlternativeIcon
 
         copy.state = self.state
         copy.isHighlighted = self.isHighlighted
@@ -88,8 +90,8 @@ class TabButtonCell: NSButtonCell {
         return self.requiredMinimumWidth <= NSWidth(titleDrawRect)
     }
 
-    override func cellSize(forBounds aRect: NSRect) -> NSSize {
-        let title = self.style.attributedTitle(content: self.title, selectionState: self.selectionState)
+    public override func cellSize(forBounds aRect: NSRect) -> NSSize {
+        let title = self.style.attributedTitle(self)
         let titleSize = title.size()
         let popupSize = (self.menu == nil) ? NSZeroSize : TabButtonCell.popupImage().size
         let cellSize = NSMakeSize(titleSize.width + (popupSize.width * 2) + 36, max(titleSize.height, popupSize.height))
@@ -104,11 +106,10 @@ class TabButtonCell: NSButtonCell {
         return popupRect
     }
     
-    override func trackMouse(with theEvent: NSEvent,
-                             in cellFrame: NSRect,
+    public override func trackMouse(with theEvent: NSEvent,
+                                    in cellFrame: NSRect,
                                     of controlView: NSView,
-                                           untilMouseUp flag: Bool) -> Bool
-    {
+                                    untilMouseUp flag: Bool) -> Bool {
         if self.hitTest(for: theEvent,
                                 in: controlView.superview!.frame,
                                 of: controlView.superview!) != NSCell.HitResult()
@@ -129,8 +130,8 @@ class TabButtonCell: NSButtonCell {
         return super.trackMouse(with: theEvent, in: cellFrame, of: controlView, untilMouseUp: flag)
     }
     
-    override func titleRect(forBounds theRect: NSRect) -> NSRect {
-        let title = self.style.attributedTitle(content: self.title, selectionState: self.selectionState)
+    public override func titleRect(forBounds theRect: NSRect) -> NSRect {
+        let title = self.style.attributedTitle(self)
         var rect = self.style.titleRect(title: title, inBounds: theRect, showingIcon: self.showsIcon)
         rect = rect.offsetBy(dx: titleMargin*2, dy: 0).shrinkBy(dx: titleMargin*2, dy: 0)
         if self.closeButtonSize != 0 {
@@ -185,12 +186,11 @@ class TabButtonCell: NSButtonCell {
     
     // MARK: - Drawing
 
-    override func draw(withFrame frame: NSRect, in controlView: NSView) {
-
-        self.style.drawTabButtonBezel(frame: frame, position: self.buttonPosition, isSelected: self.isSelected)
+    public override func draw(withFrame frame: NSRect, in controlView: NSView) {
+        self.style.drawTabButtonBezel(self, in: frame)
         
         if self.hasRoomToDrawFullTitle(inRect: frame) || self.hasTitleAlternativeIcon == false {
-            let title = self.style.attributedTitle(content: self.title, selectionState: self.selectionState)
+            let title = self.style.attributedTitle(self)
             _ = self.drawTitle(title, withFrame: frame, in: controlView)
         }
 
@@ -199,7 +199,10 @@ class TabButtonCell: NSButtonCell {
         }
     }
 
-    override func drawTitle(_ title: NSAttributedString, withFrame frame: NSRect, in controlView: NSView) -> NSRect {
+    public override func drawTitle(_ title: NSAttributedString,
+                                   withFrame frame: NSRect,
+                                   in controlView: NSView) -> NSRect {
+
         let titleRect = self.titleRect(forBounds: frame)
         title.draw(in: titleRect)
         return titleRect

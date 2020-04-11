@@ -18,17 +18,30 @@ public enum TitleDefaults {
 extension ThemedStyle {
     
     // MARK: - Tab Buttons
-    
-    public func tabButtonOffset(position: TabPosition) -> Offset {
+    public var tabButtonsMargin: (left: CGFloat, right: CGFloat) { (0.0, 0.0)}
+
+    public func tabButtonOffset(_ button: TabButtonCell) -> Offset {
         return NSPoint()
     }
 
-    public func tabButtonBorderMask(_ position: TabPosition) -> BorderMask? {
+    public func tabButtonBorderMask(_ button: TabButtonCell) -> BorderMask? {
         return BorderMask.all()
     }
     
-    public func tabButtonBackgroundColor(isSelected: Bool) -> NSColor {
-        return isSelected ? self.theme.selectedTabButtonTheme.backgroundColor : self.theme.tabButtonTheme.backgroundColor
+    public func tabButtonBackgroundColor(_ button: TabButtonCell) -> NSColor {
+        if button.isSelected {
+            return self.theme.selectedTabButtonTheme.backgroundColor
+        } else {
+            return self.theme.tabButtonTheme.backgroundColor
+        }
+    }
+  
+    public func tabButtonTitleColor(_ button: TabButtonCell) -> NSColor {
+        if button.isSelected {
+            return self.theme.selectedTabButtonTheme.titleColor
+        } else {
+            return self.theme.tabButtonTheme.titleColor
+        }
     }
   
     // MARK: - Tab Button Titles
@@ -69,9 +82,8 @@ extension ThemedStyle {
                 alignment: TitleDefaults.alignment)
     }
     
-    public func attributedTitle(content: String, selectionState: TabSelectionState) -> NSAttributedString {
-        
-        let activeTheme = self.theme.tabButtonTheme(fromSelectionState: selectionState)
+    public func attributedTitle(_ button: TabButtonCell) -> NSAttributedString {
+        let activeTheme = self.theme.tabButtonTheme(fromSelectionState: button.selectionState)
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = TitleDefaults.alignment
@@ -81,7 +93,7 @@ extension ThemedStyle {
                           NSAttributedString.Key.font : activeTheme.titleFont,
                           NSAttributedString.Key.paragraphStyle : paragraphStyle]
         
-        return NSAttributedString(string: content, attributes: attributes)
+        return NSAttributedString(string: button.title, attributes: attributes)
     }
 
     // MARK: - Tabs Control
@@ -101,28 +113,30 @@ extension ThemedStyle {
         self.drawBorder(borderDrawing, color: self.theme.tabsControlTheme.borderColor)
     }
     
-    public func drawTabButtonBezel(frame: NSRect, position: TabPosition, isSelected: Bool) {
-        
-        let activeTheme = isSelected ? self.theme.selectedTabButtonTheme : self.theme.tabButtonTheme
+    public func drawTabButtonBezel(_ button: TabButtonCell, in frame: NSRect) {
+        let activeTheme = button.isSelected ? self.theme.selectedTabButtonTheme : self.theme.tabButtonTheme
+
         if let gradTheme = activeTheme as? GradientTabButtonTheme {
           let gradient = NSGradient(colors: [gradTheme.topBackgroundColor, gradTheme.bottomBackgroundColor])
           gradient?.draw(in: frame, angle: 90.0)
         } else {
-          tabButtonBackgroundColor(isSelected: isSelected).setFill()
+          tabButtonBackgroundColor(button).setFill()
           frame.fill()
         }
-        let borderDrawing = BorderDrawing.fromMask(frame, borderMask: self.tabButtonBorderMask(position))
+
+        let borderDrawing = BorderDrawing.fromMask(frame, borderMask: self.tabButtonBorderMask(button))
         self.drawBorder(borderDrawing, color: activeTheme.borderColor)
     }
 
     fileprivate func drawBorder(_ border: BorderDrawing, color: NSColor) {
-        
-        guard case let .draw(borderRects: borderRects, rectCount: _) = border
-            else { return }
-        
-        color.setFill()
-        color.setStroke()
-        borderRects.fill()
+        switch border {
+        case let .draw(borderRects: borderRects, rectCount: _):
+            color.setFill()
+            color.setStroke()
+            borderRects.fill()
+        default:
+            return
+        }
     }
 }
 

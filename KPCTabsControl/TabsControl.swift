@@ -93,7 +93,7 @@ open class TabsControl: NSControl, NSTextDelegate {
         self.scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         self.scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         self.scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-      
+                        
         self.tabsView = NSView(frame: self.scrollView.bounds)
         self.tabsView.autoresizingMask = [NSView.AutoresizingMask.height]
         self.scrollView.documentView = self.tabsView
@@ -226,7 +226,7 @@ open class TabsControl: NSControl, NSTextDelegate {
         var buttonX = self.style.tabButtonsMargin.left
         for (index, button) in tabButtons.enumerated() {
             let style = getStyle(for: button.item!)
-            let offset = style.tabButtonOffset(index: index, totalCount: tabButtons.count)
+            let offset = style.tabButtonOffset(button)
             let buttonFrame = CGRect(x: buttonX + offset.x, y: offset.y, width: buttonWidth, height: buttonHeight)
             
             buttonX += buttonWidth + offset.x
@@ -344,6 +344,8 @@ open class TabsControl: NSControl, NSTextDelegate {
         var reordered = false
         
         let draggingTab = tab.copy() as! TabButton
+        draggingTab.dragging = true
+
         self.addSubview(draggingTab)
         tab.isHidden = true
 
