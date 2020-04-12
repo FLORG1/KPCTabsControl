@@ -132,7 +132,7 @@ public class TabButtonCell: NSButtonCell {
     
     public override func titleRect(forBounds theRect: NSRect) -> NSRect {
         let title = self.style.attributedTitle(self)
-        var rect = self.style.titleRect(title: title, inBounds: theRect, showingIcon: self.showsIcon)
+        var rect = self.style.titleRect(title: title, inBounds: theRect, showingIcon: self.showsIcon)        
         rect = rect.offsetBy(dx: titleMargin*2, dy: 0).shrinkBy(dx: titleMargin*2, dy: 0)
         if self.closeButtonSize != 0 {
             rect.size.width -= closeButtonSize + 2*titleMargin

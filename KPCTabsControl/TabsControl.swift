@@ -243,6 +243,7 @@ open class TabsControl: NSControl, NSTextDelegate {
                 button.isEnabled = selectable
             }
 
+            button.updateVisuals()          
             tabsViewWidth += buttonWidth + offset.x
         }
           

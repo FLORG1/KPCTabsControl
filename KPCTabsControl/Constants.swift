@@ -90,3 +90,12 @@ public struct BorderMask: OptionSet {
     public static let right = BorderMask(rawValue: 1 << 2)
     public static let bottom = BorderMask(rawValue: 1 << 3)
 }
+
+
+/**
+*  Tab button close button position: left or right
+*/
+
+public enum CloseButtonPosition: String {
+    case left, right
+}

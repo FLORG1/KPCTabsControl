@@ -89,8 +89,8 @@
 		9F09E9FD1C95668400EA970C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		9F1186421D4CF89B00E6CE39 /* TabsControlCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabsControlCell.swift; path = KPCTabsControl/TabsControlCell.swift; sourceTree = "<group>"; };
 		9F1F12961D7C5D8A006FD828 /* KPCTabsControl.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KPCTabsControl.podspec; sourceTree = SOURCE_ROOT; };
-		9F2154A81D2D179500C4DD06 /* TabButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabButton.swift; path = KPCTabsControl/TabButton.swift; sourceTree = "<group>"; };
-		9F23FF311D10A99D00326F3B /* TabButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabButtonCell.swift; path = KPCTabsControl/TabButtonCell.swift; sourceTree = "<group>"; };
+		9F2154A81D2D179500C4DD06 /* TabButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = TabButton.swift; path = KPCTabsControl/TabButton.swift; sourceTree = "<group>"; tabWidth = 4; };
+		9F23FF311D10A99D00326F3B /* TabButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = TabButtonCell.swift; path = KPCTabsControl/TabButtonCell.swift; sourceTree = "<group>"; tabWidth = 4; };
 		9F3C2E351A0182DF00281F4B /* KPCPullDownTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = KPCPullDownTemplate.pdf; sourceTree = "<group>"; };
 		9F3C2E361A0182DF00281F4B /* KPCTabLeftTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = KPCTabLeftTemplate.pdf; sourceTree = "<group>"; };
 		9F3C2E371A0182DF00281F4B /* KPCTabPlusTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = KPCTabPlusTemplate.pdf; sourceTree = "<group>"; };

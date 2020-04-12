@@ -19,6 +19,7 @@ public protocol Style {
     // Tab Buttons
     var tabButtonWidth: TabWidth { get }
     var tabButtonsMargin: (left: CGFloat, right: CGFloat) { get }
+    var tabButtonCloseButtonPosition: CloseButtonPosition { get }
 
     func tabButtonOffset(_ button: TabButtonCell) -> Offset
     func tabButtonBorderMask(_ button: TabButtonCell) -> BorderMask?

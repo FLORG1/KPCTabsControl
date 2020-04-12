@@ -216,15 +216,25 @@ open class TabButton: NSButton {
     open override func resetCursorRects() {
         self.addCursorRect(self.bounds, cursor: NSCursor.arrow)
     }
-    
-    open override func draw(_ dirtyRect: NSRect) {
+
+    open func updateVisuals() {
         guard let tabButtonCell = self.tabButtonCell else {
             assertionFailure("TabButtonCell expected in drawRect(_:)"); return
         }
 
+        // Layout close button first as title rect depends on it
+        let closeButtonHeight = self.bounds.height - 8
+        switch style.tabButtonCloseButtonPosition {
+        case .left:
+            closeButton?.frame = NSRect(x: 4, y: 4, width: closeButtonHeight, height:closeButtonHeight)
+        case .right:
+            closeButton?.frame = NSRect(x: self.bounds.width - closeButtonHeight - 4,
+                                        y: 4, width: closeButtonHeight, height:closeButtonHeight)
+        }
+
         if let iconFrames = self.style?.iconFrames(tabRect: self.frame) {
-            let titleRect = self.tabButtonCell!.titleRect(forBounds: self.bounds)
-            let titleX = titleRect.origin.x + (titleRect.width - self.tabButtonCell!.requiredMinimumWidth) / 2.0
+            let titleRect = tabButtonCell.titleRect(forBounds: self.bounds)
+            let titleX = titleRect.origin.x + (titleRect.width - tabButtonCell.requiredMinimumWidth) / 2.0
 
             var iconFrame = iconFrames.iconFrame
             iconFrame.origin.x = titleX - iconFrame.width
@@ -232,12 +242,10 @@ open class TabButton: NSButton {
             self.iconView?.frame = iconFrame
             self.alternativeTitleIconView?.frame = iconFrames.alternativeTitleIconFrame
         }
-        
+
         let hasRoom = tabButtonCell.hasRoomToDrawFullTitle(inRect: self.bounds)
         self.alternativeTitleIconView?.isHidden = hasRoom
         self.toolTip = (hasRoom == true) ? nil : self.title
-
-        super.draw(dirtyRect)
     }
 
     
@@ -282,11 +290,11 @@ open class TabButton: NSButton {
         
         self.addSubview(closeButton!)
         
-        closeButton?.translatesAutoresizingMaskIntoConstraints = false
-        closeButton?.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
-        closeButton?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4).isActive = true
-        closeButton?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4).isActive = true
-        closeButton?.heightAnchor.constraint(equalTo: closeButton!.widthAnchor, multiplier: 1).isActive = true
+//        closeButton?.translatesAutoresizingMaskIntoConstraints = false
+//        closeButton?.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
+//        closeButton?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4).isActive = true
+//        closeButton?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4).isActive = true
+//        closeButton?.heightAnchor.constraint(equalTo: closeButton!.widthAnchor, multiplier: 1).isActive = true
     }
 }
 

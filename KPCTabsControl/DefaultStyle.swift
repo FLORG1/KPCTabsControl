@@ -20,6 +20,8 @@ extension ThemedStyle {
     // MARK: - Tab Buttons
     public var tabButtonsMargin: (left: CGFloat, right: CGFloat) { (0.0, 0.0)}
 
+    public var tabButtonCloseButtonPosition: CloseButtonPosition { .left }
+
     public func tabButtonOffset(_ button: TabButtonCell) -> Offset {
         return NSPoint()
     }
@@ -155,19 +157,19 @@ private enum BorderDrawing {
         var borderRects: [NSRect] = [NSZeroRect, NSZeroRect, NSZeroRect, NSZeroRect]
         
         if mask.contains(.top) {
-            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 0.5, .minY)
+            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 1.0, .minY)
             outputCount += 1
         }
         if mask.contains(.left) {
-            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 0.5, .minX)
+            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 1.0, .minX)
             outputCount += 1
         }
         if mask.contains(.right) {
-            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 0.5, .maxX)
+            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 1.0, .maxX)
             outputCount += 1
         }
         if mask.contains(.bottom) {
-            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 0.5, .maxY)
+            NSDivideRect(sourceRect, &borderRects[outputCount], &remainderRect, 1.0, .maxY)
             outputCount += 1
         }
         
