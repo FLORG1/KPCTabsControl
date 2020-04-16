@@ -184,9 +184,9 @@ open class TabsControl: NSControl, NSTextDelegate {
             button.style = style
 
             button.title = dataSource.tabsControl(self, titleForItem: item)
-            button.icon = dataSource.tabsControl?(self, iconForItem: item)
+            button.image = dataSource.tabsControl?(self, iconForItem: item)
+          
             button.menu = dataSource.tabsControl?(self, menuForItem: item)
-            button.alternativeTitleIcon = dataSource.tabsControl?(self, titleAlternativeIconForItem: item) 
         }
         
         self.layoutTabButtons(nil, animated: false)

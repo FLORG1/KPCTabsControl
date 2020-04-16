@@ -21,7 +21,7 @@ public class TabButtonCell: NSButtonCell {
     }
 
     var showsIcon: Bool {
-        get { return (self.controlView as! TabButton).icon != nil }
+        get { return (self.controlView as! TabButton).image != nil }
     }
     
     var closeButtonSize: CGFloat {
@@ -188,7 +188,7 @@ public class TabButtonCell: NSButtonCell {
 
     public override func draw(withFrame frame: NSRect, in controlView: NSView) {
         self.style.drawTabButtonBezel(self, in: frame)
-        
+
         if self.hasRoomToDrawFullTitle(inRect: frame) || self.hasTitleAlternativeIcon == false {
             let title = self.style.attributedTitle(self)
             _ = self.drawTitle(title, withFrame: frame, in: controlView)
@@ -196,6 +196,22 @@ public class TabButtonCell: NSButtonCell {
 
         if self.showsMenu {
             self.drawPopupButtonWithFrame(frame)
+        }
+
+        if let image = self.image {
+            self.drawImage(image, withFrame: frame, in: controlView)
+        }
+    }
+
+    public override func drawImage(_ image: NSImage, withFrame frame: NSRect, in controlView: NSView) {
+        if let iconFrames = style?.iconFrames(tabRect: frame) {
+            let titleRect = self.titleRect(forBounds: frame)
+            let titleX = titleRect.origin.x + (titleRect.width - requiredMinimumWidth) / 2.0
+
+            var iconFrame = iconFrames.iconFrame
+            iconFrame.origin.x = titleX - iconFrame.width
+
+            self.image?.draw(in: iconFrame)
         }
     }
 

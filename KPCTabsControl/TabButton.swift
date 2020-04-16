@@ -9,9 +9,6 @@
 import AppKit
 
 open class TabButton: NSButton {
-
-    fileprivate var iconView: NSImageView?
-    fileprivate var alternativeTitleIconView: NSImageView?
     fileprivate var trackingArea: NSTrackingArea?
     fileprivate var closeButton: CloseButton?
     
@@ -52,44 +49,6 @@ open class TabButton: NSButton {
         set { self.tabButtonCell?.isEditable = newValue }
     }
 
-    open var icon: NSImage? = nil {
-        didSet {
-            if self.icon != nil && self.iconView == nil {
-                self.iconView = NSImageView(frame: .zero)
-                self.iconView?.imageFrameStyle = .none
-                self.iconView?.imageScaling = .scaleProportionallyUpOrDown
-                
-                self.addSubview(self.iconView!)
-            }
-            else if (self.icon == nil && self.iconView != nil) {
-                self.iconView?.removeFromSuperview()
-                self.iconView = nil
-            }
-            self.iconView?.image = self.icon
-            self.needsDisplay = true
-        }
-    }
-    
-    open var alternativeTitleIcon: NSImage? = nil {
-        didSet {
-            self.tabButtonCell?.hasTitleAlternativeIcon = (self.alternativeTitleIcon != nil)
-            
-            if self.alternativeTitleIcon != nil && self.alternativeTitleIconView == nil {
-                self.alternativeTitleIconView = NSImageView(frame: .zero)
-                self.alternativeTitleIconView?.imageFrameStyle = .none
-                self.alternativeTitleIconView?.imageScaling = .scaleProportionallyUpOrDown
-
-                self.addSubview(self.alternativeTitleIconView!)
-            }
-            else if self.alternativeTitleIcon == nil && self.alternativeTitleIconView != nil {
-                self.alternativeTitleIconView?.removeFromSuperview()
-                self.alternativeTitleIconView = nil
-            }
-            self.alternativeTitleIconView?.image = self.alternativeTitleIcon
-            self.needsDisplay = true
-        }
-    }
-    
     open var closeTabCallBack : ((AnyObject?, AnyObject?) -> Void)? = {_, _ in }
 
     open var dragging: Bool {
@@ -125,8 +84,7 @@ open class TabButton: NSButton {
         let tabCell = TabButtonCell(textCell: "")
         
         tabCell.representedObject = item
-        tabCell.imagePosition = .noImage
-        
+
         tabCell.target = target
         tabCell.action = action
         tabCell.style = style
@@ -144,8 +102,6 @@ open class TabButton: NSButton {
     override open func copy() -> Any {
         let copy = TabButton(frame: self.frame, style: self.style!, closeCallBack: self.closeTabCallBack)
         copy.cell = self.cell?.copy() as? NSCell
-        copy.icon = self.icon
-        copy.alternativeTitleIcon = self.alternativeTitleIcon
         copy.state = self.state
         copy.index = self.index
         copy.closeTabCallBack = self.closeTabCallBack
@@ -226,25 +182,14 @@ open class TabButton: NSButton {
         let closeButtonHeight = self.bounds.height - 8
         switch style.tabButtonCloseButtonPosition {
         case .left:
-            closeButton?.frame = NSRect(x: 4, y: 4, width: closeButtonHeight, height:closeButtonHeight)
+            closeButton?.frame = NSRect(x: 4, y: 4,
+                                        width: closeButtonHeight, height:closeButtonHeight)
         case .right:
-            closeButton?.frame = NSRect(x: self.bounds.width - closeButtonHeight - 4,
-                                        y: 4, width: closeButtonHeight, height:closeButtonHeight)
-        }
-
-        if let iconFrames = self.style?.iconFrames(tabRect: self.frame) {
-            let titleRect = tabButtonCell.titleRect(forBounds: self.bounds)
-            let titleX = titleRect.origin.x + (titleRect.width - tabButtonCell.requiredMinimumWidth) / 2.0
-
-            var iconFrame = iconFrames.iconFrame
-            iconFrame.origin.x = titleX - iconFrame.width
-
-            self.iconView?.frame = iconFrame
-            self.alternativeTitleIconView?.frame = iconFrames.alternativeTitleIconFrame
+            closeButton?.frame = NSRect(x: self.bounds.width - closeButtonHeight - 4, y: 4,
+                                        width: closeButtonHeight, height:closeButtonHeight)
         }
 
         let hasRoom = tabButtonCell.hasRoomToDrawFullTitle(inRect: self.bounds)
-        self.alternativeTitleIconView?.isHidden = hasRoom
         self.toolTip = (hasRoom == true) ? nil : self.title
     }
 
@@ -289,12 +234,6 @@ open class TabButton: NSButton {
         closeButton?.imageScaling = .scaleProportionallyDown
         
         self.addSubview(closeButton!)
-        
-//        closeButton?.translatesAutoresizingMaskIntoConstraints = false
-//        closeButton?.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
-//        closeButton?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4).isActive = true
-//        closeButton?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4).isActive = true
-//        closeButton?.heightAnchor.constraint(equalTo: closeButton!.widthAnchor, multiplier: 1).isActive = true
     }
 }
 
