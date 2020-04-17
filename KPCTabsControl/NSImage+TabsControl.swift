@@ -14,16 +14,17 @@ extension NSImage {
         imageRect.size = self.size;
         
         let highlightImage = NSImage(size: imageRect.size)
-        
+
         highlightImage.lockFocus()
-        
-        self.draw(in: imageRect, from: NSZeroRect, operation: .sourceOver, fraction: 1.0)
-        
-        tint.set()
-        imageRect.fill(using: .sourceAtop);
-        
+        self.drawWithTint(tint, in: imageRect)
         highlightImage.unlockFocus()
-        
+
         return highlightImage;
     }
+
+  internal func drawWithTint(_ tint: NSColor, in rect: NSRect) {
+    self.draw(in: rect, from: NSZeroRect, operation: .sourceOver, fraction: 1.0)
+    tint.set()
+    rect.fill(using: .sourceAtop)
+  }
 }

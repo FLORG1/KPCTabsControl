@@ -178,8 +178,8 @@ open class TabButton: NSButton {
             assertionFailure("TabButtonCell expected in drawRect(_:)"); return
         }
 
-        // Layout close button first as title rect depends on it
         let closeButtonHeight = self.bounds.height - 8
+
         switch style.tabButtonCloseButtonPosition {
         case .left:
             closeButton?.frame = NSRect(x: 4, y: 4,
@@ -226,12 +226,15 @@ open class TabButton: NSButton {
         closeButton?.target = self
         closeButton?.action = #selector(closeButtonPressed)
 
-        if let style = style, let cell = tabButtonCell {
-            let img = NSImage(named: NSImage.stopProgressTemplateName)
-            closeButton?.image = img?.imageWithTint(style.tabButtonTitleColor(cell))
-        }
+        if let style = style, let cell = tabButtonCell,
+            let img = NSImage(named: NSImage.stopProgressTemplateName) {
 
-        closeButton?.imageScaling = .scaleProportionallyDown
+            closeButton?.image = NSImage(size: img.size, flipped: false) {
+                img.drawWithTint(style.tabButtonTitleColor(cell), in: $0)
+                return true
+            }
+            closeButton?.imageScaling = .scaleProportionallyDown
+        }
         
         self.addSubview(closeButton!)
     }
@@ -244,10 +247,18 @@ class CloseButton: NSButton {
     
     private var highlightColor: NSColor? {
         guard let style = tabButton.style, let cell = tabButton.tabButtonCell  else { return nil }
-        let color = style.tabButtonBackgroundColor(cell)
-        return color.isDark ? color.lighterColor() : color.darkerColor()
+
+        let current = NSAppearance.current
+        NSAppearance.current = self.effectiveAppearance
+
+        var color = style.tabButtonBackgroundColor(cell)
+        color = color.isDark ? color.lighterColor() : color.darkerColor()
+
+        NSAppearance.current = current
+
+        return color
     }
-    
+
     override func updateTrackingAreas() {
         if let ta = trackingArea {
             self.removeTrackingArea(ta)
@@ -269,9 +280,9 @@ class CloseButton: NSButton {
 }
 
 class CloseButtonCell: NSButtonCell {
-  override func drawImage(_ image: NSImage, withFrame frame: NSRect, in controlView: NSView) {
-    super.drawImage(image, withFrame: frame.insetBy(dx: 1, dy: 1), in: controlView)
-  }
+    override func drawImage(_ image: NSImage, withFrame frame: NSRect, in controlView: NSView) {
+        super.drawImage(image, withFrame: frame.insetBy(dx: 1, dy: 1), in: controlView)
+    }
 }
 
 
