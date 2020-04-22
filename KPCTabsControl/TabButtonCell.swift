@@ -134,12 +134,19 @@ public class TabButtonCell: NSButtonCell {
         let title = self.style.attributedTitle(self)
         var rect = self.style.titleRect(title: title, inBounds: theRect, showingIcon: self.showsIcon)        
         rect = rect.offsetBy(dx: titleMargin*2, dy: 0).shrinkBy(dx: titleMargin*2, dy: 0)
+        
+        if self.dragging {
+            rect = rect.shrinkBy(dx: titleMargin*2, dy: 0)
+        }
         if self.closeButtonSize != 0 {
             rect.size.width -= closeButtonSize + 2*titleMargin
         }
         if self.showsMenu {
             let popupRect = self.popupRectWithFrame(theRect)
             rect.size.width -= popupRect.width + 2*titleMargin
+        }
+        if image != nil, let iconFrames = style?.iconFrames(tabRect: theRect) {
+            rect = rect.offsetBy(dx: iconFrames.iconFrame.width, dy: 0).shrinkBy(dx: iconFrames.iconFrame.width, dy: 0)
         }
         return rect
     }
@@ -206,11 +213,16 @@ public class TabButtonCell: NSButtonCell {
     public override func drawImage(_ image: NSImage, withFrame frame: NSRect, in controlView: NSView) {
         if let iconFrames = style?.iconFrames(tabRect: frame) {
             let titleRect = self.titleRect(forBounds: frame)
-            let titleX = titleRect.origin.x + (titleRect.width - requiredMinimumWidth) / 2.0
+            let titleX: CGFloat
+            if self.hasRoomToDrawFullTitle(inRect: frame) {
+                titleX = titleRect.origin.x + (titleRect.width - requiredMinimumWidth) / 2.0
+            } else {
+                titleX = titleRect.origin.x
+            }
+            
 
             var iconFrame = iconFrames.iconFrame
             iconFrame.origin.x = titleX - iconFrame.width
-
             self.image?.draw(in: iconFrame)
         }
     }
