@@ -13,7 +13,6 @@
 		501FD7791D5B2CA300C3B1F3 /* DefaultTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501FD7781D5B2CA300C3B1F3 /* DefaultTheme.swift */; };
 		508829A51D61A1FA00678DF3 /* CollectionType+TabsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508829A41D61A1FA00678DF3 /* CollectionType+TabsControl.swift */; };
 		50BF2D711D5F09A8006A54F5 /* ChromeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF2D701D5F09A8006A54F5 /* ChromeStyle.swift */; };
-		50BF2D731D5F1C44006A54F5 /* ColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF2D721D5F1C44006A54F5 /* ColoredView.swift */; };
 		9F0505531D717CF8003D542B /* SafariTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0505521D717CF8003D542B /* SafariTheme.swift */; };
 		9F0505551D717D05003D542B /* SafariStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0505541D717D05003D542B /* SafariStyle.swift */; };
 		9F1186431D4CF89B00E6CE39 /* TabsControlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1186421D4CF89B00E6CE39 /* TabsControlCell.swift */; };
@@ -23,13 +22,6 @@
 		9F4081571D38F63D00ADF6DB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F53676D1D38F4A6001C5D54 /* Constants.swift */; };
 		9F4081591D39387B00ADF6DB /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4081581D39387B00ADF6DB /* Protocols.swift */; };
 		9F40815B1D3938E100ADF6DB /* TabsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F40815A1D3938E100ADF6DB /* TabsControl.swift */; };
-		9F45CD931D396D4200149654 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45CD921D396D4200149654 /* AppDelegate.swift */; };
-		9F45CD951D396D4200149654 /* PaneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45CD941D396D4200149654 /* PaneViewController.swift */; };
-		9F45CD971D396D4200149654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F45CD961D396D4200149654 /* Assets.xcassets */; };
-		9F45CDA11D396DD200149654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F45CD9F1D396DD200149654 /* Main.storyboard */; };
-		9F45CDA41D396EA700149654 /* KPCTabsControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA7EDA51AD668BC0060FF79 /* KPCTabsControl.framework */; };
-		9F45CDA61D396EB400149654 /* KPCTabsControl.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA7EDA51AD668BC0060FF79 /* KPCTabsControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9F45CDA81D39815D00149654 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F45CDA71D39815D00149654 /* ViewController.swift */; };
 		9F4946B41D5F87440061C5B7 /* DefaultStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4946B21D5F87440061C5B7 /* DefaultStyle.swift */; };
 		9F4946B51D5F87440061C5B7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4946B31D5F87440061C5B7 /* Theme.swift */; };
 		9F4946B71D6058440061C5B7 /* ChromeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4946B61D6058440061C5B7 /* ChromeTheme.swift */; };
@@ -39,42 +31,9 @@
 		9FA7EDCF1AD66A250060FF79 /* KPCTabLeftTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3C2E361A0182DF00281F4B /* KPCTabLeftTemplate.pdf */; };
 		9FA7EDD01AD66A250060FF79 /* KPCTabPlusTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3C2E371A0182DF00281F4B /* KPCTabPlusTemplate.pdf */; };
 		9FA7EDD11AD66A250060FF79 /* KPCTabRightTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3C2E381A0182DF00281F4B /* KPCTabRightTemplate.pdf */; };
-		9FC4B55B2195ACE7000F2119 /* KPCTabsControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC4B55A2195ACE7000F2119 /* KPCTabsControlTests.swift */; };
-		9FC4B55D2195ACE7000F2119 /* KPCTabsControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA7EDA51AD668BC0060FF79 /* KPCTabsControl.framework */; };
 		9FF789451D0FDA9700F66AF2 /* MessageInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF789441D0FDA9700F66AF2 /* MessageInterceptor.swift */; };
 		9FF7894C1D10470A00F66AF2 /* NSImage+TabsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF7894B1D10470A00F66AF2 /* NSImage+TabsControl.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		9F45CDA21D396EA400149654 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9F2155AC1A002E6C00819BDF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9FA7EDA41AD668BC0060FF79;
-			remoteInfo = KPCTabsControl;
-		};
-		9FC4B55E2195ACE7000F2119 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9F2155AC1A002E6C00819BDF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9FA7EDA41AD668BC0060FF79;
-			remoteInfo = KPCTabsControl;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9F45CDA51D396EAB00149654 /* Copy Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9F45CDA61D396EB400149654 /* KPCTabsControl.framework in Copy Frameworks */,
-			);
-			name = "Copy Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C17C8C623336FB20075FD4A /* СustomizableTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СustomizableTabItem.swift"; sourceTree = "<group>"; };
@@ -83,7 +42,6 @@
 		501FD7781D5B2CA300C3B1F3 /* DefaultTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultTheme.swift; path = KPCTabsControl/DefaultTheme.swift; sourceTree = "<group>"; };
 		508829A41D61A1FA00678DF3 /* CollectionType+TabsControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CollectionType+TabsControl.swift"; path = "KPCTabsControl/CollectionType+TabsControl.swift"; sourceTree = "<group>"; };
 		50BF2D701D5F09A8006A54F5 /* ChromeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChromeStyle.swift; path = KPCTabsControl/ChromeStyle.swift; sourceTree = "<group>"; };
-		50BF2D721D5F1C44006A54F5 /* ColoredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredView.swift; sourceTree = "<group>"; };
 		9F0505521D717CF8003D542B /* SafariTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafariTheme.swift; path = KPCTabsControl/SafariTheme.swift; sourceTree = "<group>"; };
 		9F0505541D717D05003D542B /* SafariStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafariStyle.swift; path = KPCTabsControl/SafariStyle.swift; sourceTree = "<group>"; };
 		9F09E9FD1C95668400EA970C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
@@ -97,13 +55,6 @@
 		9F3C2E381A0182DF00281F4B /* KPCTabRightTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = KPCTabRightTemplate.pdf; sourceTree = "<group>"; };
 		9F4081581D39387B00ADF6DB /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = KPCTabsControl/Protocols.swift; sourceTree = "<group>"; };
 		9F40815A1D3938E100ADF6DB /* TabsControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabsControl.swift; path = KPCTabsControl/TabsControl.swift; sourceTree = "<group>"; };
-		9F45CD901D396D4200149654 /* KPCTabsControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPCTabsControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F45CD921D396D4200149654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9F45CD941D396D4200149654 /* PaneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaneViewController.swift; sourceTree = "<group>"; };
-		9F45CD961D396D4200149654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9F45CD9B1D396D4200149654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F45CDA01D396DD200149654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9F45CDA71D39815D00149654 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9F4946B21D5F87440061C5B7 /* DefaultStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultStyle.swift; path = KPCTabsControl/DefaultStyle.swift; sourceTree = "<group>"; };
 		9F4946B31D5F87440061C5B7 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = KPCTabsControl/Theme.swift; sourceTree = "<group>"; };
 		9F4946B61D6058440061C5B7 /* ChromeTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChromeTheme.swift; path = KPCTabsControl/ChromeTheme.swift; sourceTree = "<group>"; };
@@ -113,35 +64,16 @@
 		9F91D2F21D7B2F1500261A5B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = KPCTabsControl/Helpers.swift; sourceTree = "<group>"; };
 		9FA7EDA51AD668BC0060FF79 /* KPCTabsControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KPCTabsControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA7EDA81AD668BC0060FF79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FC4B5582195ACE7000F2119 /* KPCTabsControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KPCTabsControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FC4B55A2195ACE7000F2119 /* KPCTabsControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPCTabsControlTests.swift; sourceTree = "<group>"; };
-		9FC4B55C2195ACE7000F2119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FF789441D0FDA9700F66AF2 /* MessageInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageInterceptor.swift; path = KPCTabsControl/MessageInterceptor.swift; sourceTree = "<group>"; };
 		9FF789491D10464000F66AF2 /* NSButton+TabsControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSButton+TabsControl.swift"; path = "KPCTabsControl/NSButton+TabsControl.swift"; sourceTree = "<group>"; };
 		9FF7894B1D10470A00F66AF2 /* NSImage+TabsControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSImage+TabsControl.swift"; path = "KPCTabsControl/NSImage+TabsControl.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9F45CD8D1D396D4200149654 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9F45CDA41D396EA700149654 /* KPCTabsControl.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9FA7EDA11AD668BC0060FF79 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9FC4B5552195ACE7000F2119 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9FC4B55D2195ACE7000F2119 /* KPCTabsControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,8 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				9FF789431D0FDA7A00F66AF2 /* KPCTabsControl */,
-				9F45CD911D396D4200149654 /* KPCTabsControlDemo */,
-				9FC4B5592195ACE7000F2119 /* KPCTabsControlTests */,
 				9F2155B51A002E6C00819BDF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -214,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				9FA7EDA51AD668BC0060FF79 /* KPCTabsControl.framework */,
-				9F45CD901D396D4200149654 /* KPCTabsControlDemo.app */,
-				9FC4B5582195ACE7000F2119 /* KPCTabsControlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,20 +159,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9F45CD911D396D4200149654 /* KPCTabsControlDemo */ = {
-			isa = PBXGroup;
-			children = (
-				9F45CD921D396D4200149654 /* AppDelegate.swift */,
-				9F45CDA71D39815D00149654 /* ViewController.swift */,
-				50BF2D721D5F1C44006A54F5 /* ColoredView.swift */,
-				9F45CD941D396D4200149654 /* PaneViewController.swift */,
-				9F45CD961D396D4200149654 /* Assets.xcassets */,
-				9F45CD9F1D396DD200149654 /* Main.storyboard */,
-				9F45CD9B1D396D4200149654 /* Info.plist */,
-			);
-			path = KPCTabsControlDemo;
-			sourceTree = "<group>";
-		};
 		9FA7EDA71AD668BC0060FF79 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,15 +169,6 @@
 			);
 			name = "Supporting Files";
 			path = KPCTabsControl;
-			sourceTree = "<group>";
-		};
-		9FC4B5592195ACE7000F2119 /* KPCTabsControlTests */ = {
-			isa = PBXGroup;
-			children = (
-				9FC4B55A2195ACE7000F2119 /* KPCTabsControlTests.swift */,
-				9FC4B55C2195ACE7000F2119 /* Info.plist */,
-			);
-			path = KPCTabsControlTests;
 			sourceTree = "<group>";
 		};
 		9FF789431D0FDA7A00F66AF2 /* KPCTabsControl */ = {
@@ -298,25 +203,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9F45CD8F1D396D4200149654 /* KPCTabsControlDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9F45CD9C1D396D4200149654 /* Build configuration list for PBXNativeTarget "KPCTabsControlDemo" */;
-			buildPhases = (
-				9F45CD8C1D396D4200149654 /* Sources */,
-				9F45CD8D1D396D4200149654 /* Frameworks */,
-				9F45CD8E1D396D4200149654 /* Resources */,
-				9F45CDA51D396EAB00149654 /* Copy Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9F45CDA31D396EA400149654 /* PBXTargetDependency */,
-			);
-			name = KPCTabsControlDemo;
-			productName = KPCTabsControlDemo;
-			productReference = 9F45CD901D396D4200149654 /* KPCTabsControlDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
 		9FA7EDA41AD668BC0060FF79 /* KPCTabsControl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9FA7EDBC1AD668BC0060FF79 /* Build configuration list for PBXNativeTarget "KPCTabsControl" */;
@@ -335,24 +221,6 @@
 			productReference = 9FA7EDA51AD668BC0060FF79 /* KPCTabsControl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9FC4B5572195ACE7000F2119 /* KPCTabsControlTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9FC4B5622195ACE7000F2119 /* Build configuration list for PBXNativeTarget "KPCTabsControlTests" */;
-			buildPhases = (
-				9FC4B5542195ACE7000F2119 /* Sources */,
-				9FC4B5552195ACE7000F2119 /* Frameworks */,
-				9FC4B5562195ACE7000F2119 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9FC4B55F2195ACE7000F2119 /* PBXTargetDependency */,
-			);
-			name = KPCTabsControlTests;
-			productName = KPCTabsControlTests;
-			productReference = 9FC4B5582195ACE7000F2119 /* KPCTabsControlTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -363,17 +231,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Cédric Foellmi";
 				TargetAttributes = {
-					9F45CD8F1D396D4200149654 = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 1020;
-					};
 					9FA7EDA41AD668BC0060FF79 = {
 						CreatedOnToolsVersion = 6.2;
 						LastSwiftMigration = 1020;
-					};
-					9FC4B5572195ACE7000F2119 = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -391,22 +251,11 @@
 			projectRoot = "";
 			targets = (
 				9FA7EDA41AD668BC0060FF79 /* KPCTabsControl */,
-				9F45CD8F1D396D4200149654 /* KPCTabsControlDemo */,
-				9FC4B5572195ACE7000F2119 /* KPCTabsControlTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9F45CD8E1D396D4200149654 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9F45CD971D396D4200149654 /* Assets.xcassets in Resources */,
-				9F45CDA11D396DD200149654 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9FA7EDA31AD668BC0060FF79 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,27 +267,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9FC4B5562195ACE7000F2119 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9F45CD8C1D396D4200149654 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9F45CDA81D39815D00149654 /* ViewController.swift in Sources */,
-				9F45CD951D396D4200149654 /* PaneViewController.swift in Sources */,
-				9F45CD931D396D4200149654 /* AppDelegate.swift in Sources */,
-				50BF2D731D5F1C44006A54F5 /* ColoredView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9FA7EDA01AD668BC0060FF79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -468,39 +299,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9FC4B5542195ACE7000F2119 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9FC4B55B2195ACE7000F2119 /* KPCTabsControlTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9F45CDA31D396EA400149654 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9FA7EDA41AD668BC0060FF79 /* KPCTabsControl */;
-			targetProxy = 9F45CDA21D396EA400149654 /* PBXContainerItemProxy */;
-		};
-		9FC4B55F2195ACE7000F2119 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9FA7EDA41AD668BC0060FF79 /* KPCTabsControl */;
-			targetProxy = 9FC4B55E2195ACE7000F2119 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		9F45CD9F1D396DD200149654 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9F45CDA01D396DD200149654 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9F2155C61A002E6C00819BDF /* Debug */ = {
@@ -605,43 +404,6 @@
 			};
 			name = Release;
 		};
-		9F45CD9D1D396D4200149654 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = KPCTabsControlDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onekiloparsec.KPCTabsControlDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		9F45CD9E1D396D4200149654 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = KPCTabsControlDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onekiloparsec.KPCTabsControlDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		9FA7EDB81AD668BC0060FF79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -696,53 +458,6 @@
 			};
 			name = Release;
 		};
-		9FC4B5602195ACE7000F2119 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = KPCTabsControlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onekiloparsec.KPCTabsControlTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		9FC4B5612195ACE7000F2119 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = KPCTabsControlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onekiloparsec.KPCTabsControlTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -755,29 +470,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F45CD9C1D396D4200149654 /* Build configuration list for PBXNativeTarget "KPCTabsControlDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9F45CD9D1D396D4200149654 /* Debug */,
-				9F45CD9E1D396D4200149654 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		9FA7EDBC1AD668BC0060FF79 /* Build configuration list for PBXNativeTarget "KPCTabsControl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9FA7EDB81AD668BC0060FF79 /* Debug */,
 				9FA7EDB91AD668BC0060FF79 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9FC4B5622195ACE7000F2119 /* Build configuration list for PBXNativeTarget "KPCTabsControlTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9FC4B5602195ACE7000F2119 /* Debug */,
-				9FC4B5612195ACE7000F2119 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
