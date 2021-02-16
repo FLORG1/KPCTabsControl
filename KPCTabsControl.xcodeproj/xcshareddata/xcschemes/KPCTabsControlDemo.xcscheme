@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9FA7EDA41AD668BC0060FF79"
-               BuildableName = "KPCTabsControl.framework"
-               BlueprintName = "KPCTabsControl"
-               ReferencedContainer = "container:KPCTabsControl.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9FC4B5572195ACE7000F2119"
-               BuildableName = "KPCTabsControlTests.xctest"
-               BlueprintName = "KPCTabsControlTests"
+               BlueprintIdentifier = "9F45CD8F1D396D4200149654"
+               BuildableName = "KPCTabsControlDemo.app"
+               BlueprintName = "KPCTabsControlDemo"
                ReferencedContainer = "container:KPCTabsControl.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,23 +28,13 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9FC4B5572195ACE7000F2119"
-               BuildableName = "KPCTabsControlTests.xctest"
-               BlueprintName = "KPCTabsControlTests"
-               ReferencedContainer = "container:KPCTabsControl.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9FA7EDA41AD668BC0060FF79"
-            BuildableName = "KPCTabsControl.framework"
-            BlueprintName = "KPCTabsControl"
+            BlueprintIdentifier = "9F45CD8F1D396D4200149654"
+            BuildableName = "KPCTabsControlDemo.app"
+            BlueprintName = "KPCTabsControlDemo"
             ReferencedContainer = "container:KPCTabsControl.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9FA7EDA41AD668BC0060FF79"
-            BuildableName = "KPCTabsControl.framework"
-            BlueprintName = "KPCTabsControl"
+            BlueprintIdentifier = "9F45CD8F1D396D4200149654"
+            BuildableName = "KPCTabsControlDemo.app"
+            BlueprintName = "KPCTabsControlDemo"
             ReferencedContainer = "container:KPCTabsControl.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -93,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9FA7EDA41AD668BC0060FF79"
-            BuildableName = "KPCTabsControl.framework"
-            BlueprintName = "KPCTabsControl"
+            BlueprintIdentifier = "9F45CD8F1D396D4200149654"
+            BuildableName = "KPCTabsControlDemo.app"
+            BlueprintName = "KPCTabsControlDemo"
             ReferencedContainer = "container:KPCTabsControl.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
